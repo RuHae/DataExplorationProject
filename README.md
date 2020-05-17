@@ -1,5 +1,8 @@
 # DataExplorationProject
 
+## Which Version
+Python 3.6.8
+
 ## Create the virtual python environment
 
 copy in your shell:
@@ -8,11 +11,9 @@ copy in your shell:
 ## Start the virtual env
 
 copy in your shell:
-	For Windows:
-	` <name_of_your_env>\Scripts\activate.bat ` 
+   For Windows: ` <name_of_your_env>\Scripts\activate.bat ` 
 	
-	For Linux / MacOS:
-	` source <name_of_your_env>/bin/activate `
+   For Linux / MacOS: ` source <name_of_your_env>/bin/activate `
 	
 ## Install requirements.txt 
 
@@ -23,8 +24,8 @@ copy to your shell after you started the virtual env:
 	
 ### Credits
 
-[https://pip.pypa.io/en/stable/reference/pip_install/]
-[https://docs.python.org/3/tutorial/venv.html]
+https://pip.pypa.io/en/stable/reference/pip_install/
+https://docs.python.org/3/tutorial/venv.html
 
 
 
