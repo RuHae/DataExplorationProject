@@ -25,6 +25,7 @@ copy to your shell after you started the virtual env:
 ### Credits
 
 https://pip.pypa.io/en/stable/reference/pip_install/
+
 https://docs.python.org/3/tutorial/venv.html
 
 
