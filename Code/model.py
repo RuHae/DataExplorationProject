@@ -43,7 +43,7 @@ import time
 from preprocessing import open_png_pictures, preprocess_training_images
 from plot_training_stats import plot_model_accuracy, plot_model_loss
 
-def baseline_model(num_classes, loss="categorical_crossentropy", optimizer = SGD(lr=0.001, decay=1e-6, momentum=0.9, nesterov=True), metrics=['accuracy']):
+def baseline_model(num_classes, loss="binary_crossentropy", optimizer = SGD(lr=0.001, decay=1e-6, momentum=0.9, nesterov=True), metrics=['accuracy']):
     #Adam: optimizer = Adam(lr=0.0001, beta_1=0.9, epsilon=0.1), metrics=['accuracy'])
     # optimizer = Adam(lr=0.0001), metrics=['accuracy'])
     #SGD: optimizer=SGD(lr=0.001, decay=1e-6, momentum=0.9, nesterov=True), metrics=['accuracy'])
@@ -87,12 +87,12 @@ def save_model(model):
         json_file.write(model_json)
     return None
 
-def run_training(num:int, path:str, model_json_file="model.json", model_weights_file="model_weights.h5"):
+def run_training(path:str, model_json_file="model.json", model_weights_file="model_weights.h5"):
     # mode train or test
     # fixing error message
     keras.backend.get_session().run(tf.global_variables_initializer())
     # load components (training set, test set, num classes)
-    num_classes, X_train, X_test, y_train, y_test = preprocess_training_images(num, path)
+    num_classes, X_train, X_test, y_train, y_test = preprocess_training_images(path)
 
     # build the model
     model = baseline_model(num_classes)

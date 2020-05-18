@@ -15,26 +15,33 @@ def open_png_pictures(filename:str):
     image = Image.open(filename)
     return np.array(image.getdata()).reshape(3, 50, 50).astype(np.uint8)
 
-def preprocess_training_images(num:int, path:str):
+def preprocess_training_images(path:str):
     # num = num of classes
     # append all images and labels to seperated lists
     X_total = list()
     y_total = list()
 
-    for f in range(num):
-        cpath = os.path.join(path, str(f))
-        # path for example: '/dbfs/Projects/Gesichtserkennung/labeled'
-        files = os.listdir(cpath)
-        print(len(files))
-        for filename in tqdm(files):
-            X_total.append(open_png_pictures(os.path.join(cpath,filename)))
-            y_total.append(f)
+    for patient in range(len(os.listdir(path))):
+        dirpath = os.path.join(path, str(patient))
+        for label in range(len(dirpath)):
+            dirpath = os.path.join(path, str(label))
+            print(label)
+            for imgname in range(len(dirpath)):
+                dirpath = os.path.join(path, str(imgname))
+                print(imgname)
+                files = os.listdir(dirpath)
+                print(len(files))
+            #for filename in tqdm(files):
+                #print(filename)
+
+            #X_total.append(open_png_pictures(os.path.join(cpath,filename)))
+            #y_total.append(f)
 
     # convert the image list to numpy array
     X_total = np.array(X_total)
 
     # normalize the arrays to 0 and 1
-    X_total = X_total / 255
+    X_total = X_total / 255 
 
     # to_categorical converts an array of labeled data(from 0 to nb_classes-1) to one-hot vector.
     y_total = np_utils.to_categorical(y_total)

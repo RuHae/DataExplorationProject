@@ -1,3 +1,3 @@
 from model import run_training
 
-run_training(num=6, path="database")
+run_training(path="..\\breast-histopathology-images\\IDC_regular_ps50_idx5")
