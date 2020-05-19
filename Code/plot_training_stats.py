@@ -10,8 +10,7 @@ def plot_model_accuracy(history, figsize=(16,10)):
     plt.ylabel('Genauigkeit', fontsize=19)
     plt.xlabel('Epoche', fontsize=19)
     plt.legend(['Training','Test'],loc='lower right', fontsize=14)
-    image = plt.show()
-    return display(image)
+    return plt.show()
 
 def plot_model_loss(history, figsize=(16,10)):
     # Visualisation validation loss
@@ -22,5 +21,4 @@ def plot_model_loss(history, figsize=(16,10)):
     plt.ylabel('Fehlerrate', fontsize=17)
     plt.xlabel('Epoche', fontsize=17)
     plt.legend(['Training', 'Test'] , loc='upper right', fontsize=14)
-    image = plt.show()
-    return display(image)
+    return plt.show()

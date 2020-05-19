@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 import os
+import numpy
 
 # for data set and confusion matrix
 import sklearn
@@ -17,15 +18,17 @@ from tqdm import tqdm
 
 def open_png_pictures(filename:str):
     # Methode ergänzen, die die Größe auslesen kann
-    image = Image.open(filename)
-    if ValueError:
-        return None
-    else:
-        return np.array(image.getdata()).reshape(3, 50, 50).astype(np.uint8)
+    with Image.open(filename) as image:
+        width, height = image.size
+        if width != 50 or height != 50:
+            return None
+        else:
+            return numpy.array(image.getdata()).reshape(3, 50, 50).astype(np.uint8)
 
-def preprocess_training_images(path:str):
+def load_training_images(path:str):
     # num = num of classes
     # append all images and labels to seperated lists
+    # path = ".\\breast-histopathology-images\IDC_regular_ps50_idx5"
     X_total = list()
     y_total = list()
 
@@ -36,10 +39,10 @@ def preprocess_training_images(path:str):
             for img in tqdm(os.listdir(npath)):
                 #print(img)
                 #print(os.path.join(npath,img))
-                
-                X_total.append(open_png_pictures(os.path.join(npath,img)))
-                y_total.append(label)
-    
+                if open_png_pictures(os.path.join(npath,img)) is not None:
+                    X_total.append(open_png_pictures(os.path.join(npath,img)))
+                    y_total.append(label)
+        
     print(len(X_total))
     print(len(y_total))
 
@@ -52,6 +55,14 @@ def preprocess_training_images(path:str):
     # to_categorical converts an array of labeled data(from 0 to nb_classes-1) to one-hot vector.
     y_total = np_utils.to_categorical(y_total)
 
+    np.save('Xdata.npy', X_total) # save
+    np.save('Ydata.npy', y_total) # save
+    return None
+
+def data_preparation():
+    X_total = np.load('./Xdata.npy') # load images
+    y_total = np.load('./Ydata.npy') # load labels
+    
     # num_classes for Dense Layer
     num_classes = y_total.shape[1]
     print('num classes:',num_classes)

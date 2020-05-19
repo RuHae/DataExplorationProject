@@ -39,7 +39,7 @@ from tqdm import tqdm
 import time
 
 # basic functions for run_training()
-from preprocessing import open_png_pictures, preprocess_training_images
+from preprocessing import open_png_pictures, load_training_images, data_preparation
 from plot_training_stats import plot_model_accuracy, plot_model_loss
 
 def baseline_model(num_classes, loss="binary_crossentropy", optimizer = SGD(lr=0.001, decay=1e-6, momentum=0.9, nesterov=True), metrics=['accuracy']):
@@ -86,12 +86,12 @@ def save_model(model):
         json_file.write(model_json)
     return None
 
-def run_training(path:str, model_json_file="model.json", model_weights_file="model_weights.h5"):
+def run_training(model_json_file="model.json", model_weights_file="model_weights.h5"):
     # mode train or test
     # fixing error message
     keras.backend.get_session().run(tf.global_variables_initializer())
     # load components (training set, test set, num classes)
-    num_classes, X_train, X_test, y_train, y_test = preprocess_training_images(path)
+    num_classes, X_train, X_test, y_train, y_test = data_preparation()
 
     # build the model
     model = baseline_model(num_classes)
