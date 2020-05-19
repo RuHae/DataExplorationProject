@@ -19,7 +19,6 @@ from keras.layers import Dropout
 from keras.layers import Flatten
 from keras.layers.convolutional import Conv2D
 from keras.layers.convolutional import MaxPooling2D
-from keras.utils import np_utils
 import keras.backend as K
 # Image Ordering changes the dimensions!
 K.set_image_dim_ordering('th')

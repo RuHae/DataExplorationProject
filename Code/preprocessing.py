@@ -8,8 +8,12 @@ import sklearn
 from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
 
+from keras.utils import np_utils
 # for image manipulation 
 from PIL import Image
+
+# for visualisation of loading bar
+from tqdm import tqdm
 
 def open_png_pictures(filename:str):
     image = Image.open(filename)
@@ -21,21 +25,19 @@ def preprocess_training_images(path:str):
     X_total = list()
     y_total = list()
 
-    for patient in range(len(os.listdir(path))):
-        dirpath = os.path.join(path, str(patient))
-        for label in range(len(dirpath)):
-            dirpath = os.path.join(path, str(label))
-            print(label)
-            for imgname in range(len(dirpath)):
-                dirpath = os.path.join(path, str(imgname))
-                print(imgname)
-                files = os.listdir(dirpath)
-                print(len(files))
-            #for filename in tqdm(files):
-                #print(filename)
-
-            #X_total.append(open_png_pictures(os.path.join(cpath,filename)))
-            #y_total.append(f)
+    for patient in os.listdir(path):
+        bpath = os.path.join(path, str(patient))
+        for label in os.listdir(bpath):
+            npath = os.path.join(bpath, str(label))
+            for img in tqdm(os.listdir(npath)):
+                #print(img)
+                print(os.path.join(npath,img))
+                
+                X_total.append(open_png_pictures(os.path.join(npath,img)))
+                y_total.append(label)
+    
+    print(len(x_total))
+    print(len(y_total))
 
     # convert the image list to numpy array
     X_total = np.array(X_total)
