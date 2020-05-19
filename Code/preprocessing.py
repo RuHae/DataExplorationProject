@@ -16,8 +16,12 @@ from PIL import Image
 from tqdm import tqdm
 
 def open_png_pictures(filename:str):
+    # Methode ergänzen, die die Größe auslesen kann
     image = Image.open(filename)
-    return np.array(image.getdata()).reshape(3, 50, 50).astype(np.uint8)
+    if ValueError:
+        return None
+    else:
+        return np.array(image.getdata()).reshape(3, 50, 50).astype(np.uint8)
 
 def preprocess_training_images(path:str):
     # num = num of classes
@@ -31,12 +35,12 @@ def preprocess_training_images(path:str):
             npath = os.path.join(bpath, str(label))
             for img in tqdm(os.listdir(npath)):
                 #print(img)
-                print(os.path.join(npath,img))
+                #print(os.path.join(npath,img))
                 
                 X_total.append(open_png_pictures(os.path.join(npath,img)))
                 y_total.append(label)
     
-    print(len(x_total))
+    print(len(X_total))
     print(len(y_total))
 
     # convert the image list to numpy array
