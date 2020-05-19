@@ -101,7 +101,7 @@ def run_training(model_json_file="model.json", model_weights_file="model_weights
     callbacks_list = [checkpoint]
 
     # Fit the model
-    history = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=100, batch_size=64, callbacks=callbacks_list, verbose = 1)
+    history = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=30, batch_size=256, callbacks=callbacks_list, verbose = 1)
 
     # plots of the learning curves
     print(plot_model_accuracy(history))

@@ -60,8 +60,8 @@ def load_training_images(path:str):
     return None
 
 def data_preparation():
-    X_total = np.load('./Xdata.npy') # load images
-    y_total = np.load('./Ydata.npy') # load labels
+    X_total = np.load('.\Xdata.npy') # load images
+    y_total = np.load('.\Ydata.npy') # load labels
     
     # num_classes for Dense Layer
     num_classes = y_total.shape[1]
