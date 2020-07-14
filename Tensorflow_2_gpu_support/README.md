@@ -1,7 +1,12 @@
 # DataExplorationProject
 
 ## Which Version
-Python 3.6.8
+Python 3.8
+
+## Differnces
+
+GPU Support
+Code adjustments to support Tensorflow 2.0 and Python 3.8
 
 ## Create the virtual python environment
 
@@ -19,7 +24,7 @@ copy in your shell:
 
 The requirements.txt is in the git.
 copy to your shell after you started the virtual env:
-	` pip install -r requirements.txt `  
+	` pip install -r requirements4.txt `  
 	
 	
 ### Credits
