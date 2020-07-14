@@ -6,6 +6,7 @@ Python 3.8
 ## Differnces
 
 GPU Support
+
 Code adjustments to support Tensorflow 2.0 and Python 3.8
 
 ## Create the virtual python environment
