@@ -3,7 +3,7 @@
 ## Which Version
 Python 3.8
 
-## Differnces
+## Differences
 
 GPU Support
 
