@@ -9,6 +9,8 @@ GPU Support
 
 Code adjustments to support Tensorflow 2.0 and Python 3.8
 
+# Setup
+
 ## Create the virtual python environment
 
 copy in your shell:
@@ -26,7 +28,12 @@ copy in your shell:
 The requirements.txt is in the git.
 copy to your shell after you started the virtual env:
 	` pip install -r requirements4.txt `  
-	
+## Start preprocessing
+Uncomment the following line in run.py
+	` #load_training_images("..\\breast-histopathology-images\\IDC_regular_ps50_idx5") `
+
+Run the in your shell (make sure you are in the correct directory:
+	` python run.py `
 	
 ### Credits
 
