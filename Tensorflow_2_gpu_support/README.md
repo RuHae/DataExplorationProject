@@ -31,11 +31,11 @@ copy to your shell after you started the virtual env:
 ## Start preprocessing
 Uncomment the following line in run.py
 
-	` #load_training_images("..\\breast-histopathology-images\\IDC_regular_ps50_idx5") `
+` #load_training_images("..\\breast-histopathology-images\\IDC_regular_ps50_idx5") `
 
 Run the in your shell (make sure you are in the correct directory:
 
-	` python run.py `
+` python run.py `
 
 
 
