@@ -27,9 +27,10 @@ copy in your shell:
 
 The requirements.txt is in the git.
 copy to your shell after you started the virtual env:
-	` pip install -r requirements4.txt `  
+
+` pip install -r requirements4.txt `  
 ## Start preprocessing
-Uncomment the following line in run.py
+Uncomment the following line in run.py:
 
 ` #load_training_images("..\\breast-histopathology-images\\IDC_regular_ps50_idx5") `
 
