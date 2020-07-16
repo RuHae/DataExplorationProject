@@ -82,9 +82,13 @@ def data_preparation():
     
     return (num_classes, X_total[shuffle_indexes], y_total[shuffle_indexes], split_index)
 
+##################################################################################################
+#Ignore#
+########
 
 ##################################################################################################
-# Uncomment the following line before first code execution # run this python file to load images #
+# # # run this python file to load images # # #
 ##################################################################################################
 
 #load_training_images(".\\breast-histopathology-images\IDC_regular_ps50_idx5")
+##################################################################################################
