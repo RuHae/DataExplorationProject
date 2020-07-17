@@ -1,5 +1,9 @@
 # DataExplorationProject
 
+The goal of this project is to build an image classification for breast cancer.
+
+The whole project work is part of the course DataExploration at DHBW Mannheim.
+
 ## Which Version
 Python 3.8
 
